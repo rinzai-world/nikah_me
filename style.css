@@ -1,107 +1,20 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body Styles */
-body {
-    font-family: Arial, sans-serif;
-    background: #fef9f3;
-    color: #5a4034;
+/* Countdown Timer */
+.countdown {
+    background: #fff5e4;
+    padding: 30px 20px;
+    margin: 40px 0;
+    border-radius: 8px;
     text-align: center;
-    padding: 50px 20px;
 }
 
-/* Hero Section */
-.hero {
-    background: #fff5e4;
-    padding: 40px 20px;
-    margin-bottom: 40px;
-    border-radius: 8px;
+.countdown h2 {
+    font-size: 2em;
+    color: #824c3a;
+    margin-bottom: 10px;
 }
 
-.hero h1 {
+#countdown-timer {
     font-size: 2.5em;
+    font-weight: bold;
     color: #d47a4a;
-}
-
-.hero h2 {
-    font-size: 2em;
-    margin-top: 10px;
-    color: #824c3a;
-}
-
-.hero p {
-    font-size: 1.2em;
-    margin-top: 10px;
-}
-
-/* Couple Section */
-.couple {
-    background: white;
-    padding: 30px 20px;
-    margin-bottom: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.couple img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-}
-
-.couple h2 {
-    font-size: 2em;
-    color: #d47a4a;
-}
-
-.couple p {
-    font-size: 1.2em;
-    margin-top: 10px;
-}
-
-/* Event Details Section */
-.details {
-    background: #fff5e4;
-    padding: 30px 20px;
-    border-radius: 8px;
-}
-
-.details h2 {
-    font-size: 2em;
-    color: #824c3a;
-}
-
-.details p {
-    font-size: 1.2em;
-    margin-top: 10px;
-}
-
-/* Button */
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 15px 30px;
-    background: #d47a4a;
-    color: white;
-    text-decoration: none;
-    font-size: 1.2em;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-}
-
-.btn:hover {
-    background: #a75c3a;
-}
-
-/* Footer */
-footer {
-    margin-top: 50px;
-    color: #555;
-    font-size: 1.1em;
 }
