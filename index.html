@@ -35,7 +35,40 @@
     <p><strong>Resepsi:</strong> Rabu, 22 Januari 2025, 12:00 - 15:00 WIB</p>
     <p><strong>Tempat:</strong> Pallameang, Pinrang, Sulawesi Selatan</p>
 </section>
+<!-- Map Section -->
+<section class="map-section">
+    <h2>Lokasi Acara</h2>
+    <div id="map" style="height: 400px; width: 100%;"></div>
+</section>
 
+<!-- RSVP Button -->
+<a href="#rsvp" class="btn">Konfirmasi Kehadiran</a>
+
+<!-- Footer -->
+<footer>
+    <p>Dengan Hormat,</p>
+    <p>Rifqi & Paisa</p>
+</footer>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-QE3CkB7MekLF4/1sUStmITiNLozW0p5Z3e9A4Lkiqvg=" crossorigin=""></script>
+<script src="script.js"></script>
+
+<script>
+    // Initialize the map
+    var map = L.map('map').setView([-3.8474, 119.6519], 15);  // Coordinates for Pinrang, Sulawesi Selatan
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // Add a marker
+    L.marker([-3.8474, 119.6519]).addTo(map)
+     .bindPopup("<b>Lokasi Acara</b><br>Pallameang, Pinrang, Sulawesi Selatan.")
+     .openPopup();
+</script>
 <!-- RSVP Button -->
 <a href="#rsvp" class="btn">Konfirmasi Kehadiran</a>
 
