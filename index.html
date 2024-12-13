@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pernikahan Kami</title>
     <link rel="stylesheet" href="style.css">
-    
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
 </head>
 <body>
-<img src="pitik.gif" alt="Description of animation">
+
 <!-- Hero Section -->
 <header class="hero">
     <h1>Undangan Pernikahan</h1>
@@ -33,6 +31,7 @@
 
 <!-- Event Details Section -->
 <section class="details">
+    <img src="pitik.gif" alt="Description of animation">
     <h2>Detail Acara</h2>
     <p><strong>Akad Nikah:</strong> Rabu, 22 Januari 2025, 09:00 WIB</p>
     <p><strong>Resepsi:</strong> Rabu, 22 Januari 2025, 12:00 - 15:00 WIB</p>
@@ -40,9 +39,9 @@
 </section>
 
 <!-- Map Section -->
-<section class="map-section">
+<section class="map">
     <h2>Lokasi Acara</h2>
-    <div id="map" style="height: 400px; width: 100%;"></div>
+    <div id="map" style="height: 400px;"></div>
 </section>
 
 <!-- RSVP Button -->
@@ -54,24 +53,22 @@
     <p>Rifqi & Paisa</p>
 </footer>
 
-<!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-QE3CkB7MekLF4/1sUStmITiNLozW0p5Z3e9A4Lkiqvg=" crossorigin=""></script>
+<!-- Scripts -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script src="script.js"></script>
-
 <script>
-    // Initialize the map
-    var map = L.map('map').setView([-3.8474, 119.6519], 15);  // Coordinates for Pinrang, Sulawesi Selatan
+    // Initialize the Map
+    const map = L.map('map').setView([-3.857642, 119.652318], 13);  // Coordinates for Pinrang, Sulawesi Selatan
 
-    // Add OpenStreetMap tiles
+    // Add Tile Layer
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '© OpenStreetMap'
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    // Add a marker
-    L.marker([-3.8474, 119.6519]).addTo(map)
-     .bindPopup("<b>Lokasi Acara</b><br>Pallameang, Pinrang, Sulawesi Selatan.")
-     .openPopup();
+    // Add a Marker
+    L.marker([-3.857642, 119.652318]).addTo(map)
+        .bindPopup('Lokasi Acara: Pallameang, Pinrang, Sulawesi Selatan.')
+        .openPopup();
 </script>
 
 </body>
