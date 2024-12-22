@@ -1,80 +1,182 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pernikahan Kami</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
-</head>
-<body>
-
-<!-- Hero Section -->
-<header class="hero">
-    <h1>Undangan Pernikahan</h1>
-    <h2>Rifqi & Paisa</h2>
-    <p>Dengan Rahmat Allah SWT, kami mengundang Anda untuk menghadiri acara pernikahan kami.</p>
-</header>
-
-<!-- Countdown Timer Section -->
-<section class="countdown">
-    <h2>Waktu Menuju Hari Bahagia</h2>
-    <div id="countdown-timer">Menghitung...</div>
-</section>
-
-<!-- Couple Section -->
-<section class="couple">
-    <img src="images/tofu.jpg" alt="Rifqi & Paisa">
-    <h2>Rifqi & Paisa</h2>
-    <p>Dengan segala kerendahan hati, kami memohon doa restu dalam memulai lembaran baru kehidupan kami.</p>
-</section>
-
-<!-- Event Details Section -->
-<section class="details">
-    <img src="Blue White Illustrative Wedding Virtual Invitation.png" alt="Description of animation">
-    <h2>Detail Acara</h2>
-    <p><strong>Akad Nikah:</strong> Rabu, 22 Januari 2025, 09:00 WIB</p>
-    <p><strong>Resepsi:</strong> Rabu, 22 Januari 2025, 12:00 - 15:00 WIB</p>
-    <p><strong>Tempat:</strong> Pallameang, Pinrang, Sulawesi Selatan</p>
-</section>
-
-<!-- Map Section -->
-<section class="map">
-    <h2>Lokasi Acara</h2>
-    <div id="map" style="height: 400px;"></div>
-</section>
-
-<!-- RSVP Button -->
-<a href="#rsvp" class="btn">Konfirmasi Kehadiran</a>
-
-<!-- Footer -->
-<footer>
-    <p>Dengan Hormat,</p>
-    <p>Rifqi & Paisa</p>
-</footer>
-
-<!-- Scripts -->
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script src="script.js"></script>
-<script>
-    // Initialize the Map
-    const map = L.map('map',{
-        zoomControl:false,
-        scrollWheelZoom:false,
-        doubleClickZoom:false,
-        dragging:false
-    }).setView([-3.857642, 119.652318], 13);  // Coordinates for Pinrang, Sulawesi Selatan
-
-    // Add Tile Layer
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-
-    // Add a Marker
-    L.marker([-3.857642, 119.652318]).addTo(map)
-        .bindPopup('Lokasi Acara: Pallameang, Pinrang, Sulawesi Selatan.')
-        .openPopup();
-</script>
-
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            "Pernikahan Kami Rifqi & Paisa"
+        </title>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow: hidden; /* Prevent scrolling */
+        }
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+        .page {
+            position: absolute;
+            top: 0;
+            left: 100%; /* Start off-screen */
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.5s ease-in-out;
+        }
+        .page.active {
+            transform: translateX(-100%);
+        }
+        .page1 {
+            background: url('Background1.png') no-repeat center center/cover;
+        }
+        .page2 {
+            background: url('background2.jpg') no-repeat center center/cover;
+        }
+        .page3 {
+            background: url('background3.jpg') no-repeat center center/cover;
+        }
+        .page4 {
+            background: url('background4.jpg') no-repeat center center/cover;
+        }
+        .page5 {
+            background: url('background5.jpg') no-repeat center center/cover;
+        }
+        .content {
+            color: white;
+            text-align: center;
+        }
+        .content h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .content p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .buttons button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .buttons .next {
+            background-color: #4caf50;
+            color: white;
+        }
+        .buttons .back {
+            background-color: #f44336;
+            color: white;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="page page1 active">
+                <div class="content">
+                    <h1>Welcome to Page 1</h1>
+                    <p>This is the first page of the 5-page animation.</p>
+                    <div class="buttons">
+                        <button class="back" disabled>Back</button>
+                        <button class="next">Next</button>
+                    </div>
+                </div>
+            </div>
+            <div class="page page2">
+                <div class="content">
+                    <h1>Welcome to Page 2</h1>
+                    <p>This is the second page of the 5-page animation.</p>
+                    <div class="buttons">
+                        <button class="back">Back</button>
+                        <button class="next">Next</button>
+                    </div>
+                </div>
+            </div>
+            <div class="page page3">
+                <div class="content">
+                    <h1>Welcome to Page 3</h1>
+                    <p>This is the third page of the 5-page animation.</p>
+                    <div class="buttons">
+                        <button class="back">Back</button>
+                        <button class="next">Next</button>
+                    </div>
+                </div>
+            </div>
+            <div class="page page4">
+                <div class="content">
+                    <h1>Welcome to Page 4</h1>
+                    <p>This is the fourth page of the 5-page animation.</p>
+                    <div class="buttons">
+                        <button class="back">Back</button>
+                        <button class="next">Next</button>
+                    </div>
+                </div>
+            </div>
+            <div class="page page5">
+                <div class="content">
+                    <h1>Welcome to Page 5</h1>
+                    <p>This is the final page of the 5-page animation.</p>
+                    <div class="buttons">
+                        <button class="back">Back</button>
+                        <button class="next" disabled>Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <script>
+            const pages = document.querySelectorAll('.page');
+            const nextButtons = document.querySelectorAll('.next');
+            const backButtons = document.querySelectorAll('.back');
+    
+            let currentPage = 0;
+    
+            function updatePages() {
+                pages.forEach((page, index) => {
+                    if (index === currentPage) {
+                        page.classList.add('active');
+                    } else {
+                        page.classList.remove('active');
+                    }
+                });
+            }
+    
+            nextButtons.forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    if (currentPage < pages.length - 1) {
+                        currentPage++;
+                        updatePages();
+                    }
+                });
+            });
+    
+            backButtons.forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    if (currentPage > 0) {
+                        currentPage--;
+                        updatePages();
+                    }
+                });
+            });
+    
+            updatePages(); // Ensure initial state is correct
+        </script>
+    </body>
 </html>
