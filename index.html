@@ -1,481 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Animation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Playfair Display', serif;
-            overflow: hidden;
-            background: linear-gradient(to bottom, #f7cac9, #92a8d1);
-        }
-
-        .container {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            overflow: hidden;
-        }
-
-        .page {
-            position: absolute;
-            top: 0;
-            left: 100%; /* Start off-screen */
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            transition: transform 0.5s ease-in-out;
-            text-align: center;
-            color: white;
-            padding: 20px;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        .page.active {
-            transform: translateX(-100%);
-        }
-
-        .page1 {
-            background-image: url('Background1.png');
-            position: relative;
-        }
-
-        /* Picture Frame */
-        .picture-frame {
-            width: 200px;
-            height: 200px;
-            border: 5px solid rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            overflow: hidden;
-            margin-top: 20px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .picture-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .transparent-frame {
-            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent frame */
-            position: absolute;
-            /* margin-top: 1000px; */
-            border-radius: 10px;
-            /* padding: 20px; */
-            width: 80%;
-            max-width: 600px;
-            text-align: center;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-            position: relative;
-            margin-top: 50px; /* Adjusted position to lower content */
-            
-            z-index: 5;
-            animation: fadeInScale 1.5s ease-in-out; /* Content Animation */
-        }
-        .tulisan{
-            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent frame */
-            margin-top: 30px;
-            width: 80%;
-            z-index: 30;
-            border-radius: 10px;
-            max-width: 600px;
-            text-align: center;
-            /* box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); */
-        }
-
-        /* GIFs positioned randomly */
-        .gif-container {
-            position: absolute;
-            z-index: 10;
-            
-        }
-
-        .gif1 {
-            top: -40px;
-            left: 20%;
-            width: 100px;
-        }
-
-        .gif2 {
-            top: 10%;
-            left: 70%;
-            width: 120px;
-        }
-
-        .gif3 {
-            /* top: 10px; */
-            /* left: 50%; */
-            transform: translateX(-50%);
-            width: 150px;
-            z-index: 1;
-        }
-
-        /* Leaves GIFs */
-        .leaves-top-left {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 120px;
-            z-index: 15;
-        }
-
-        .leaves-top-right {
-            position: absolute;
-            margin-left: 270px;
-            transform: scale(2.5);
-            /* top: 0px;
-            height: 0px;
-            right: 10px;
-            left: 100px;
-            width: 0px; */
-            margin-top: 0px;
-            /* z-index: 0; */
-            transform: rotate(90deg);
-        }
-        .bird {
-            margin-top: 55px;
-            margin-left: 100px;
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 120px;
-            /* z-index: 15; */
-        }
-
-        .gif-container img, .leaves-top-left img, .leaves-top-right img {
-            width: 100%;
-            height: auto;
-            
-        }
-
-        h1 {
-            font-size: 3em;
-            font-family: 'Great Vibes', cursive;
-            color: #333;
-        }
-
-        h2, h3 {
-            font-size: 1.2em;
-            font-family: 'Playfair Display', serif;
-            color: #555;
-        }
-        h3 {
-            margin-top: 10px;
-        }
-
-        /* Navigation Buttons */
-        .navigation {
-            position: relative;
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        .navigation button {
-            padding: 10px 20px;
-            font-size: 1em;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            color: white;
-            animation: buttonPulse 1.5s infinite ease-in-out;
-        }
-
-        .back {
-            background-color: #f44336;
-        }
-
-        .next {
-            background-color: #4caf50;
-            /* animation: shortcutBounce 1.5s infinite alternate; */
-        }
-
-        /* button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            animation: none;
-        } */
-
-        /* Shortcut Bar */
-        .shortcuts {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            justify-content: space-between;
-            width: 90%;
-            max-width: 600px;
-            padding: 15px 30px;
-            border-radius: 50px;
-            background: rgba(0, 0, 0, 0.7);
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-        }
-
-        .shortcut {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            font-size: 0.9em;
-            cursor: pointer;
-            animation: shortcutBounce 1.5s infinite alternate;
-        }
-
-        .shortcut i {
-            font-size: 1.8em;
-        }
-
-        .shortcut:hover {
-            color: #ffde59;
-            transform: scale(1.2);
-            transition: transform 0.3s ease;
-        }
-
-        /* Animations */
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes buttonPulse {
-            0%, 100% {
-                transform: scale(1);
-                background-color: rgba(76, 175, 80, 1);
-            }
-            50% {
-                transform: scale(1.1);
-                background-color: rgba(76, 175, 80, 0.8);
-            }
-        }
-
-        @keyframes shortcutBounce {
-            from {
-                transform: translateY(0);
-            }
-            to {
-                transform: translateY(-10px);
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2em; }
-            h2, h3 { font-size: 1em; }
-            .navigation button {
-                font-size: 0.9em;
-                padding: 8px 15px;
-            }
-            .shortcut i {
-                font-size: 1.5em;
-            }
-
-            .gif1, .gif2, .gif3, .leaves-top-left, .leaves-top-right {
-                width: 200px; /* Adjust size for smaller screens */
-            }
-
-            .transparent-frame {
-                padding: 15px;
-            }
-
-            .picture-frame {
-                margin-top: 30px;
-                width: 350px;
-                height: 300px;
-                /* z-index: 2; */
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style7.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">  
 </head>
 <body>
-    <div class="container">
-        <!-- Page 1 -->
-        <div class="page page1 active">
-            <!-- Leaves GIFs -->
-            <div class="leaves-top-left">
-                <img src="leaves.gif" alt="Leaves Animation Top Left">
-            </div>
-            <div class="leaves-top-right">
-                <img src="leaves5.gif" alt="Leaves Animation Top Right">
-            </div>
-            <div class="transparent-frame">
-                <h1>Wedding Invitation of</h5>
-            </div>
-            <!-- Picture Frame -->
-            <div class="picture-frame">
-                <img src="muslim.jpeg" alt="Picture">
-            </div>
-        <div class="bird">
-            <img src="bird2.gif" alt="bird">
-        </div>
-            <!-- Transparent Frame -->
-            <div class="tulisan">
-                <h1>Rifqi & Paisa</h2>
-            </div>
-            <div class="navigation">
-                <!-- <button class="back" disabled>Back</button> -->
-                <button class="next" onclick="goToPage(0)"> Open Invitation</button>
-            </div>
-        </div>
-         <!-- Page 2 -->
-         <div class="page page2">
-            <h1>Our Story</h1>
-            <h2>A journey of love and togetherness.</h2>
-            <div class="navigation">
-                <button class="back">Back</button>
-                <button class="next">Next</button>
-            </div>
-        </div>
-
-        <!-- Page 3 -->
-        <div class="page page3">
-            <h1>Tanggal</h1>
-            <h2>Akad: 22 January 2025</h2>
-            <h2>Resepsi: 23 January 2025</h2>
-            <div class="navigation">
-                <button class="back">Back</button>
-                <button class="next">Next</button>
-            </div>
-        </div>
-
-        <!-- Page 4 -->
-        <div class="page page4">
-            <h1>Lokasi</h1>
-            <h2>The venue address will go here.</h2>
-            <h1>Event Location</h1>
-            <h3>Find us at:</h3>
-            <p>123 Wedding Venue, City, Country</p>
-            <div id="map" style="width: 100%; height: 400px; margin-top: 20px;"></div>
-                <!-- <iframe
-                    src="https://www.google.com/maps/embed?pb=YOUR_MAP_URL"
-                    width="100%"
-                    height="400"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe> -->
-            <div class="navigation">
-                <button class="back">Back</button>
-                <button class="next">Next</button>
-            </div>
-        </div>
-
-        <!-- Page 5 -->
-        <div class="page page5">
-            <h1>Wedding Gift</h1>
-            <h2>Thank you for your love and support!</h2>
-            <div class="navigation">
-                <button class="back">Back</button>
-                <button class="next" disabled>Next</button>
-            </div>
-        </div>
-        <!-- Shortcut Bar -->
-        <div class="shortcuts">
-            <div class="shortcut" onclick="goToPage(0)">
-                <i class="fas fa-home"></i>
-            </div>
-            <div class="shortcut" onclick="goToPage(1)">
-                <i class="fas fa-heart"></i>
-            </div>
-            <div class="shortcut" onclick="goToPage(2)">
-                <i class="fas fa-calendar"></i>
-            </div>
-            <div class="shortcut" onclick="goToPage(3)">
-                <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <div class="shortcut" onclick="goToPage(4)">
-                <i class="fas fa-gift"></i>
-            </div>
-        </div>
+  <!-- Section 1 -->
+  <section id="section1" class="d-flex flex-column justify-content-center align-items-center vh-100">   
+    <div class="gif-container top-center fade-in">
+      <img src="flower.gif" alt="Decorative Flower" class="flower-gif">
+  </div> 
+    <div class="fade-in">
+        <h1>Undangan Pernikahan</h1>
+    </div>
+    <div class="fade-in">
+      <h2>Rifqi & Paisa</h2>
+  </div>
+    
+    <div class="image-frame fade-in">
+      <img src="muslim.jpeg" alt="Your Picture" class="main-picture">
     </div>
 
-    <script>
-        const pages = document.querySelectorAll('.page');
-        const nextButtons = document.querySelectorAll('.next');
-        const backButtons = document.querySelectorAll('.back');
+    <div class="text-frame fade-in">
+        <h3>Kepada :</h3>
+    </div>
+    <div class="text-frame2 fade-in"> 
+      <h3 id="personalizedMessage" margin-top="50%"></h3>
+    </div>
+   
+    <button class="btn btn-primary bounce-button mt-3" id="open-invitation">Buka Undangan</button>
+    <!-- GIF Element -->
+    <div class="gif-container left-leaf">
+      <img src="leaves2.gif" alt="Decorative Leaves" class="leaves-gif1">
+  </div>
+  <div class="gif-container right-leaf">
+    <img src="leaves2.gif" alt="Decorative Leaves" class="leaves-gif2">
+</div>
+  </section>
 
-        let currentPage = 0;
+  <!-- Section 2 -->
+  <section id="section2" class="d-flex flex-column justify-content-center align-items-center vh-100 bg-secondary text-light">
+   <!-- Slideshow Container -->
 
-        function updatePages() {
-            pages.forEach((page, index) => {
-                if (index === currentPage) {
-                    page.classList.add('active');
-                } else {
-                    page.classList.remove('active');
-                }
-            });
+   <div class="w3-content w3-section" style="max-width:500px">
+     <p>The w3-animate-fading class animates an element in and out (takes about 10 seconds).</p>
+   
+     <img class="mySlides w3-animate-fading" src="pitik.gif" style="width:100%">
+     <img class="mySlides w3-animate-fading" src="monkey.gif" style="width:100%">
+     <img class="mySlides w3-animate-fading" src="muslim.jpeg" style="width:100%">
+     <img class="mySlides w3-animate-fading" src="flower.gif" style="width:100%">
+   </div>
+   
+  </section>
 
-            // Enable/Disable Navigation Buttons
-            nextButtons.forEach(button => {
-                button.disabled = currentPage === pages.length - 1;
-            });
-            backButtons.forEach(button => {
-                button.disabled = currentPage === 0;
-            });
-        }
+  <!-- Section 3 -->
+  <section id="section3" class="d-flex flex-column justify-content-center align-items-center vh-100 bg-light">
+    <h1>Lokasi Acara</h1>
+    <div id="map" style="width: 80%; height: 40%; margin-top: 20px;"></div>
+  </section>
 
-        nextButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                if (currentPage < pages.length - 1) {
-                    currentPage++;
-                    updatePages();
-                }
-            });
-        });
+  <!-- Section 4 -->
+  <section id="section4" class="d-flex flex-column justify-content-center align-items-center vh-100 bg-secondary text-light">
+    <h1>RSVP</h1>
+    <form class="text-center">
+      <input type="text" class="form-control my-2" placeholder="Your Name">
+      <input type="email" class="form-control my-2" placeholder="Your Email">
+      <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </form>
+  </section>
 
-        backButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                if (currentPage > 0) {
-                    currentPage--;
-                    updatePages();
-                }
-            });
-        });
-
-        function goToPage(index) {
-            currentPage = index;
-            updatePages();
-        }
-
-        updatePages(); // Ensure the initial page is active
-    
-        const map = L.map('map').setView([-6.200000, 106.816666], 15); // Replace with your coordinates
-
-        // Add OpenStreetMap tiles
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        // Add a marker to the map
-        const marker = L.marker([-3.8406871,119.5205547]).addTo(map) // Replace with your coordinates
-            .bindPopup('<b>Tempat Akad</b><br>Masjid Pallameang') // Add a popup
-            .openPopup();
-    </script>
+  <!-- Section 5 -->
+  <section id="section5" class="d-flex flex-column justify-content-center align-items-center vh-100 bg-light">
+    <h1>Thank You</h1>
+    <p>We look forward to celebrating with you!</p>
+  </section>
+     <!-- Shortcut Bar -->
+     <div class="shortcuts">
+        <div class="shortcut" onclick="goToPage(0)">
+            <i class="fas fa-home"></i>
+        </div>
+        <div class="shortcut" onclick="goToPage(1)">
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="shortcut" onclick="goToPage(2)">
+            <i class="fas fa-calendar"></i>
+        </div>
+        <div class="shortcut" onclick="goToPage(3)">
+            <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="shortcut" onclick="goToPage(4)">
+            <i class="fas fa-gift"></i>
+        </div>
+    </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script7.js"></script>
 </body>
 </html>
