@@ -3,94 +3,299 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wedding Invitation</title>
+  <title>Undangan Pernikahan Rifqi dan Paisa </title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style7.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">  
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 </head>
 <body>
+<audio id="backgroundMusic" loop>
+  <source src="background.mp3" type="audio/mpeg">
+  Browser Anda tidak mendukung audio.
+</audio>
   <!-- Section 1 -->
-  <section id="section1" class="d-flex flex-column justify-content-center align-items-center vh-100">   
-    <div class="gif-container top-center fade-in">
-      <img src="flower.gif" alt="Decorative Flower" class="flower-gif">
-  </div> 
-    <div class="fade-in">
-        <h1>Undangan Pernikahan</h1>
-    </div>
-    <div class="fade-in">
-      <h2>Rifqi & Paisa</h2>
+<section id="section1" class="d-flex flex-column justify-content-center align-items-center vh-100">   
+  <div class="fade-in">
+    <h1 class="pulse-image">Undangan Pernikahan</h1>
   </div>
-    
-    <div class="image-frame fade-in">
-      <img src="muslim.jpeg" alt="Your Picture" class="main-picture">
-    </div>
-
-    <div class="text-frame fade-in">
-        <h3>Kepada :</h3>
-    </div>
-    <div class="text-frame2 fade-in"> 
-      <h3 id="personalizedMessage" margin-top="50%"></h3>
-    </div>
-   
-    <button class="btn btn-primary bounce-button mt-3" id="open-invitation">Buka Undangan</button>
-    <!-- GIF Element -->
-    <div class="gif-container left-leaf">
-      <img src="leaves2.gif" alt="Decorative Leaves" class="leaves-gif1">
+  <div class="fade-in">
+    <h2 class="pulse-image">Rifqi & Paisa</h2>
   </div>
-  <div class="gif-container right-leaf">
-    <img src="leaves2.gif" alt="Decorative Leaves" class="leaves-gif2">
-</div>
+  <div class="image-frame fade-in">
+    <img id="imageFrame"src="muslim.jpeg" alt="Your Picture" class="main-picture">
+  </div>
+  <div class="gif-container flower-tengah fade-in" >
+    <img src="flower23.png" width="40%" height="auto" class="pulse-image">
+  </div>
+  <div class="fade-in">
+    <h3 style="margin-top: 10%;">Kepada:</h3>
+    <h3 style="margin-top: -10%;">Yth. Bapak/Ibu/Saudara/i </h3>
+  </div>
+  
+  <div class="fade-in"> 
+    <h3 id="personalizedMessage" class="bold-text"></h3>
+  </div>
+  <button class="btn btn-primary bounce-button mt-3" id="open-invitation">
+    <i class="fas fa-envelope-open-text"> </i> Buka Undangan
+  </button>
   </section>
 
-  <!-- Section 2 -->
-  <section id="section2" class="d-flex flex-column justify-content-center align-items-center vh-100 bg-secondary text-light">
-   <!-- Slideshow Container -->
+<!-- Section 2 -->
+<section id="section2" class="d-flex flex-column justify-content-center align-items-center vh-100 bg-secondary text-light">
+  <!-- <h2 style="font-size: 8vw;margin-bottom: 10%;" >بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيْمِ.</h2> -->
+  <h1 class="bold-text" style="text-decoration: underline;"> R & P</h1> 
+  <div id="countdown-wrapper" class="countdown-frame">
+    <h2 id="event-date" style="font-size: 8vw; font-weight: bold;">Rabu, 23 Januari 2025 (11.00 WITA)</h2>
+    <h3 id="countdown-title">Menuju Hari Akad Pernikahan</h3>
+    <div class="countdown">
+        <div class="countdown-item">
+            <span id="days">0</span>
+            <p>Hari</p>
+        </div>
+        <div class="countdown-item">
+            <span id="hours">0</span>
+            <p>Jam</p>
+        </div>
+        <div class="countdown-item">
+            <span id="minutes">0</span>
+            <p>Menit</p>
+        </div>
+        <div class="countdown-item">
+            <span id="seconds">0</span>
+            <p>Detik</p>
+        </div>
+    </div>
+</div>
+<!-- Frame untuk tulisan Arab -->
+<div class="arabic-frame">
+  <p class="arabic-text bold-text" style="margin-bottom: 5%;">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيْمِ</p>
+  <p class="arabic-text">
+      وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا
+      لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً ۚ
+      إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ
+  </p>
+  <p class="translation-text">
+      Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri
+      dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya
+      diantaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat
+      tanda-tanda bagi kaum yang berfikir.
+  </p>
+  <p class="translation-text">(QS. Ar-Rum: 21)</p>
+</div>
+</section>
 
-   <div class="w3-content w3-section" style="max-width:500px">
-     <p>The w3-animate-fading class animates an element in and out (takes about 10 seconds).</p>
-   
-     <img class="mySlides w3-animate-fading" src="pitik.gif" style="width:100%">
-     <img class="mySlides w3-animate-fading" src="monkey.gif" style="width:100%">
-     <img class="mySlides w3-animate-fading" src="muslim.jpeg" style="width:100%">
-     <img class="mySlides w3-animate-fading" src="flower.gif" style="width:100%">
-   </div>
-   
+
   </section>
 
   <!-- Section 3 -->
   <section id="section3" class="d-flex flex-column justify-content-center align-items-center vh-100 bg-light">
-    <h1>Lokasi Acara</h1>
-    <div id="map" style="width: 80%; height: 40%; margin-top: 20px;"></div>
+    <!-- <h2>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيْمِ.</h2>
+  <p style="text-align: center;">Maha suci Allah yang telah menciptakan mahluk-Nya berpasang-pasangan. Ya Allah rahmatilah pernikahan kami</p>
+    <div id="section3" class="slideshow-container">
+      <div class="slide fade">
+          <img src="rifqi.jpg" alt="Bride" class="slide-image">
+          <h2>Rifqi Nabila Zufar, S.T, M.Eng</h2>
+          <p>Putra Ketiga dari (Alm) Bpk. H. Ghufrons S.Ag & Ibu Hj. Sulasmi</p>
+          
+      </div>
+      <div class="slide fade">
+          <img src="paisa.jpg" alt="Groom" class="slide-image">
+          <h2>Paisa, S.Si</h2>
+          <p>Putra Pertama dari Bpk. Ahmad Fadillah & Ibu Ratna Sari Dewi</p>
+          
+      </div>
+    </div> -->
+   
+    <h3 class="section-title bold-text" style="text-decoration: underline;">Cerita Kami</h3>
+    
+    <div id="story-slider" class="slideshow-container">
+        <!-- Slide Profil Mempelai - Rifqi -->
+        <div class="slide">
+        <div class="slide-content">
+          <img src="rifqi.jpg" alt="Rifqi" class="profile-image">
+          <h3>Rifqi Nabila Zufar, S.T, M.Eng</h3>
+          <p>
+            Putra Ketiga dari (Alm) Bpk. H. Ghufrons S.Ag & Ibu Hj. Sulasmi.
+          </p>
+        </div>
+        </div>
+        <!-- Slide Profil Mempelai - Paisa -->
+        <div class="slide">
+        <div class="slide-content">
+          <img src="paisa.jpg" alt="Paisa" class="profile-image">
+          <h3>Paisa, S.Si</h3>
+          <p>
+            Putra Pertama dari Bpk. Ahmad Fadillah & Ibu Ratna Sari Dewi.
+          </p>
+        </div>
+        </div>
+        <!-- Slide 1 -->
+        <div class="slide">
+          <div class="slide-content">
+            <img src="icon-love.png" alt="Love Icon" class="icon-animation">
+            <h3>Benih Cinta di Pare</h3>
+            <p>
+              Desember 2021, kami bertemu di Pare, Jawa Timur—tempat belajar Bahasa Inggris. 
+              Dari sekadar teman kursus, kami saling mendukung hingga perjalanan ini membawa kami sejauh ini.
+            </p>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="slide">
+          <div class="slide-content">
+            <img src="icon-journey.png" alt="Journey Icon" class="icon-animation">
+            <h3>Rute Hati ke Sulawesi</h3>
+            <p>
+              Maret 2022, Rifqi menemani Paisa kembali ke Sulawesi, membantu mempersiapkan mimpi Paisa 
+              sambil mengenal dunia baru. Saat itu, Paisa melihat ketulusan dalam diri Rifqi.
+            </p>
+          </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="slide">
+          <div class="slide-content">
+            <img src="icon-distance.png" alt="Distance Icon" class="icon-animation">
+            <h3>Lintas Jarak, Lintas Rasa</h3>
+            <p>
+              Agustus 2022, jarak ribuan kilometer memisahkan kami, tetapi komunikasi tetap menguatkan.
+              Rifqi selalu memastikan Paisa termotivasi dan percaya diri meski ada kegagalan.
+            </p>
+            
+          </div>
+        </div>
+        <!-- Slide 4 -->
+        <div class="slide">
+          <div class="slide-content">
+            <img src="icon-ring.png" alt="Ring Icon" class="icon-animation">
+            <h3>Lamaran di Langit Timur</h3>
+            <p>
+              September 2024, Rifqi kembali ke Indonesia dengan niat melamar Paisa. Perjalanan ini 
+              adalah cara Tuhan mempersiapkan kami menuju babak baru.
+            </p>
+          </div>
+        </div>
+        <!-- Slide 5 -->
+        <div class="slide">
+          <div class="slide-content">
+            <img src="icon-harmony.png" alt="Harmony Icon" class="icon-animation">
+            <h3>Babak Baru dalam Harmoni</h3>
+            <p>
+              Januari 2025, kami berkomitmen untuk saling melengkapi, menjadi sandaran, 
+              dan merayakan setiap langkah menuju masa depan bersama.
+            </p>
+          </div>
+        </div>
+  </div>
+      <!-- Navigation Dots -->
+      <div class="navigation-dots" style="margin-top: 20%;">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+        <span class="dot" onclick="currentSlide(7)"></span>
+    </div>
   </section>
 
   <!-- Section 4 -->
   <section id="section4" class="d-flex flex-column justify-content-center align-items-center vh-100 bg-secondary text-light">
-    <h1>RSVP</h1>
-    <form class="text-center">
-      <input type="text" class="form-control my-2" placeholder="Your Name">
-      <input type="email" class="form-control my-2" placeholder="Your Email">
-      <button type="submit" class="btn btn-primary mt-3">Submit</button>
-    </form>
+    
+    <h1 class="bold-text" style="text-decoration: underline;" >Denah Lokasi</h1>
+    <div class="thank-you-container">
+    <h2>Masjid An-Nur Pallameang</h2>
+    <h3>Langnga, Mattiro Sompe, Kabupaten Pinrang, Sulawesi Selatan</h3>
+  </div>
+    <div id="map-container" style="position: relative; width: 80%; height: 40%; margin-top: 20px;">
+      <div id="map" style="width: 100%; height: 100%;"></div>
+      <a id="view-larger-map" href="https://www.google.com/maps/place/Masjid+An-Nur+Pallameang/@-3.841791,119.5180579,17z/data=!3m1!4b1!4m6!3m5!1s0x2d95aca49e95bf91:0x3b4e2d5cfd0e7774!8m2!3d-3.841791!4d119.5206328!16s%2Fg%2F11c1nxmb54?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn btn-primary bounce-button">
+         
+      </a>
+  </div>
+    <a id="view-larger-map"  href="https://www.google.com/maps/place/Masjid+An-Nur+Pallameang/@-3.841791,119.5180579,17z/data=!3m1!4b1!4m6!3m5!1s0x2d95aca49e95bf91:0x3b4e2d5cfd0e7774!8m2!3d-3.841791!4d119.5206328!16s%2Fg%2F11c1nxmb54?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn btn-primary bounce-button">
+      Lihat lokasi di peta
+    </a>
   </section>
 
   <!-- Section 5 -->
   <section id="section5" class="d-flex flex-column justify-content-center align-items-center vh-100 bg-light">
-    <h1>Thank You</h1>
-    <p>We look forward to celebrating with you!</p>
-  </section>
+    <h1 class="bold-text" style="text-decoration: underline;">Wedding Gift</h1>
+    <div class="thank-you-container">
+    <p>Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Jika memberi adalah tanda kasih Anda, kado dapat diberikan secara cashless.</p>
+  </div>
+  <button id="gift-button" class="gift-button bounce-button" style="margin-top: 10%;">
+    <i class="fas fa-gift "></i> Kirim Hadiah
+</button>
+    <div id="bank-card" class="bank-card gift-frame">
+        <div class="bank-logo text-frame">
+    <img src="bsi-PNG.png" alt="Bank Logo" style="width: 50%; height: auto;">
+  </div>
+  <div class="account-number">9067841890</div>
+  <button class="copy-button" onclick="copyToClipboard(this)">Salin No. Rekening</button>
+  <div class="account-holder" style="color: white;">An. Rifqi Nabila Zufar</div>
+    </div>
+    
+      </section>
+
+  <!-- Section 6 -->
+<section id="section6" class="d-flex flex-column justify-content-center align-items-center vh-100 bg-primary text-light">
+  
+  <h2 class="bold-text" style="text-decoration: underline;color: brown">Ucapkan Sesuatu</h2>
+    <form id="rsvpForm" class="rsvp-form text-center">
+      <!-- <h2>RSVP</h2> -->
+      
+        <div class="mb-3">
+            <input type="text" id="name" class="form-control" placeholder="Nama Anda" required>
+        </div>
+        <div class="mb-3">
+            <input type="number" id="guests" class="form-control" placeholder="Jumlah Tamu (termasuk Anda)" required>
+        </div>
+        <div class="mb-3">
+            <textarea id="message" class="form-control" rows="4" placeholder="Pesan untuk pasangan"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Kirim RSVP</button>
+    </form>
+    <p id="responseMessage" class="rsvp-response-message mt-3"></p>
+
+    <!-- Pesan dari tamu -->
+    <h2 class="bold-text" style="text-decoration: underline;color: brown;">Pesan dari Tamu</h2>
+    <section id="rsvpMessages" class="rsvp-message-container">
+        
+        <div id="rsvpMessagesContainer">
+            <!-- RSVP messages will be dynamically injected here -->
+        </div>
+    </section>
+</section>
+<!-- Section 7 -->
+<section id="section7" class="d-flex flex-column justify-content-center align-items-center vh-100 bg-light">
+  <div class="thank-you-container">
+    <img src="icon-thankyou.png" alt="Thank You Icon" class="thank-you-icon">
+    <h2 class="thank-you-title">Terima Kasih</h2>
+    <p class="thank-you-message">
+      Kami sangat berterima kasih atas doa, dukungan, dan kehadiran Anda dalam hari istimewa kami. 
+      Semoga kebahagiaan dan keberkahan senantiasa menyertai Anda dan keluarga tercinta.
+    </p>
+    <div class="ornament ornament-top"></div>
+    <div class="ornament ornament-bottom"></div>
+  </div>
+</section>
      <!-- Shortcut Bar -->
      <div class="shortcuts">
         <div class="shortcut" onclick="goToPage(0)">
             <i class="fas fa-home"></i>
         </div>
         <div class="shortcut" onclick="goToPage(1)">
-            <i class="fas fa-heart"></i>
+           
+            <i class="fas fa-calendar"></i>
         </div>
         <div class="shortcut" onclick="goToPage(2)">
-            <i class="fas fa-calendar"></i>
+          <i class="fas fa-heart"></i>
         </div>
         <div class="shortcut" onclick="goToPage(3)">
             <i class="fas fa-map-marker-alt"></i>
@@ -98,8 +303,15 @@
         <div class="shortcut" onclick="goToPage(4)">
             <i class="fas fa-gift"></i>
         </div>
+        <div class="shortcut" onclick="goToPage(5)">
+          <i class="fas fa-star"></i>
+      </div>
+      <div class="shortcut" id="muteShortcut" onclick="toggleMusic()">
+        <i class="fas fa-volume-up"></i>
+      </div>
     </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="script.js"></script>
+  <script src="script7.js"></script>
 </body>
 </html>
+
