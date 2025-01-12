@@ -47,8 +47,8 @@ openInvitationButton.addEventListener('click', () => {
 // Daftar gambar untuk slideshow
 const images = [
     "muslim.jpeg",
-    "paisa2.jpg",
-    "rifqi22.jpg"
+    "rifqi22.jpg",
+    "paisa2.jpg"
 ];
 
 let currentImageIndex = 0; // Index gambar saat ini
