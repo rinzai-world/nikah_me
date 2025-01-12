@@ -1,115 +1,91 @@
-/* Font Heading atau Nama */
-/* h1, h2, h3, .great-vibes {
-  font-family: 'Great Vibes', cursive;
-  font-size: 2.5rem;
-  color: #b03a2e;
-} */
-
-/* Font untuk H1 */
-h1 {
-  font-family: 'Great Vibes', cursive; /* Font dekoratif */
-  font-size: 3rem; /* Ukuran besar */
-  color: #b03a2e; /* Warna aksen elegan */
-  text-align: center; /* Perataan teks di tengah */
-  margin-bottom: 2%;
-}
-
-/* Font untuk H2 */
-h2 {
-  font-family: 'Playfair Display', serif; /* Font elegan */
-  font-size: 2.5rem; /* Ukuran sedang */
-  color: #333; /* Warna teks utama */
-  font-weight: bold;
-  margin-bottom: 5%;
-}
-
-/* Font untuk H3 */
-h3 {
-  font-family: 'Lora', serif; /* Anggun dan klasik */
-    font-size: 1.2rem;
-    color: #252525;
-    line-height: 1.8; 
-}
-.kaligrafi {
-  font-family: 'Dancing Script', cursive; /* Dekoratif */
-  font-size: 2rem;
-  color: #b03a2e; /* Warna aksen */
-  text-align: center;
-  font-weight: 500;
-}
 /* Section 1 Background Image */
 #section1 {
-    background-image: url('Background1.png'); /* Replace with your image path */
-    background-size: cover; /* Ensures the image covers the entire section */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-image: url('flower-g4.jpg');
+  background-color: rgba(255, 255, 255, 0.1); 
+  background-blend-mode: overlay;
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
   }
-  
-  /* Image Frame Styling */
-  .text-frame{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%; /* Frame width */
-    height: 3%; /* Frame height */
-    background-color: #b5d9ec; 
-    /* border: 5px solid #4a5561; */
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Frame shadow */
-    margin-top: 5%;
-  }
-  .text-frame2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%; /* Frame width */
-    height: 3%; /* Frame height */
-    background-color: #ccdee7; 
-    /* border: 5px solid #4a5561; */
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Frame shadow */
-  }
-  .image-frame {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 250px; /* Frame width */
-    height: 250px; /* Frame height */
-    /* background-color: #68acca;  */
-    /* border: 5px solid #4a5561; */
-    border-radius: 50%; /* Makes the frame circular */
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Frame shadow */
-  }
-  .main-picture {
-    width: 90%;
-    height: auto;
-    border-radius: 50%;
-  }
-  
-  /* Bouncing Button */
-  .bounce-button {
-    animation: bounce 2s infinite;
-  }
-  
-  /* Disable Scrolling */
-  body.no-scroll {
-    overflow: hidden;
-  }
+#section1 h1 {
+  margin-top: -15%;
+  font-family: 'Great Vibes', cursive; 
+  font-size: 10vw; 
+  color: #b03a2e; 
+  text-align: center; 
+  font-weight: bold;
+}
+#section1 h2 {
+  margin-top: 1%; 
+  font-family: 'Playfair Display', serif; 
+  font-size: 8vw; 
+  color: #333;
+  font-weight: bold;
+}
+#section1 h3 {
+  font-family: 'Lora', serif; 
+  font-size: 5vw;
+  color: #252525;
+  line-height: 1.8; 
+  text-align: center;
+}
+.bold-text{
+  font-weight:bold ;
+}
+.image-frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px; 
+  height: 250px;
+  border-radius: 50%; 
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); 
+  margin-top: 1%;
 
-  /* shortcut icon */
-  /* Shortcut Bar */
+}
+.main-picture {
+  width: 90%;
+  height: auto;
+  border-radius: 50%;
+  transition: opacity 0.5s ease;
+}
+
+/* Bouncing Button */
+.bounce-button {
+  animation: bounce 2s infinite;
+}
+
+/* Disable Scrolling */
+body.no-scroll {
+  overflow: hidden;
+}
+/* Image Frame Styling */
+.text-frame{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 15%;
+  background-color: #ffffff; 
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Frame shadow */
+  margin-top: 10%;
+}
+/* shortcut icon */
+/* Shortcut Bar */
 .shortcuts {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-    max-width: 600px;
-    padding: 15px 30px;
-    border-radius: 50px;
-    background: rgba(0, 0, 0, 0.7);
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 600px;
+  padding: 15px 30px;
+  border-radius: 50px;
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
 }
 
 .shortcut {
@@ -187,29 +163,55 @@ to {
   position: absolute;
   z-index: 1;   /* Pastikan berada di belakang elemen lainnya */
 }
+.flower-tengah{
+  width: 80%;
+  margin-top: 15%;
+}
+/* Keyframes untuk animasi membesar dan mengecil */
+@keyframes pulse {
+  0% {
+      transform: scale(1); /* Ukuran normal */
+  }
+  50% {
+      transform: scale(1.15); /* Membesar 20% */
+  }
+  100% {
+      transform: scale(1); /* Kembali ke ukuran normal */
+  }
+}
+
+/* Styling animasi */
+.pulse-image {
+  display: block;
+  margin: 0 auto; /* Tengah untuk estetika */
+  animation: pulse 5s infinite ease-in-out; /* Animasi */
+  transition: transform 0.3s ease-in-out;
+  margin-top: 10%;
+}
 .leaves-gif1 {
-  width: 40%; /* Sesuaikan ukuran */
+  width: 40%; 
   height: auto;
-  opacity: 0.8; /* Efek transparansi */
-  animation: float 3s ease-in-out infinite; /* Tambahkan animasi */
+  opacity: 0.8; 
+  animation: float 3s ease-in-out infinite; 
 }
 .leaves-gif2 {
   width: 50%; /* Sesuaikan ukuran */
   height: auto;
   opacity: 0.8; /* Efek transparansi */
-  animation: float 3s ease-in-out infinite; /* Tambahkan animasi */
+  animation: float 3s ease-in-out infinite; 
 }
 /* Posisi Daun Kiri */
 .left-leaf {
-  top: -10vw; /* Jarak dari bawah */
-  left: 0vw;   /* Jarak dari kiri */
+  top: -10vw; 
+  left: 0vw;   
   transform: scaleY(-1) ;
 }
 /* Posisi Daun Kanan */
 .right-leaf {
-  top: -10%; /* Jarak dari bawah */
-  right: 0%;  /* Jarak dari kanan */
+  top: -10%; 
+  right: 0%;  
   transform: scaleY(-1) scaleX(-1);
+
 }
 .flower-gif {
   width: 100%; /* Ukuran GIF */
@@ -234,4 +236,881 @@ to {
   50% {
       transform: translateY(-10px);
   }
+}
+
+#open-invitation {
+  background-color: #b03a2e; /* Warna latar tombol */
+  color: white; /* Warna teks atau ikon pada tombol */
+  border: none; /* Hilangkan border jika ada */
+}
+
+#open-invitation:hover {
+  background-color: #e64a19; /* Warna saat tombol di-hover */
+  color: #fff; /* Pastikan teks tetap terlihat saat hover */
+  transition: background-color 0.3s ease; /* Efek transisi */
+}
+
+/* Section 2 Background Image */
+#section2 {
+  position: relative; /* Penting untuk memastikan pseudo-element relatif terhadap section */
+  background: none; /* Hilangkan background langsung pada section */
+  z-index: 0; /* Pastikan section berada di bawah pseudo-element */
+  /* color: white; */
+  background-image: url('flower-g5.jpg');
+  /* background-color: rgba(232, 171, 39, 0.1);  */
+  /* background-blend-mode: overlay;  */
+  /* background-size: cover;  */
+  background-position: center; 
+  background-repeat: no-repeat;
+
+}
+
+#section2::before {
+  content: ''; /* Membuat elemen pseudo kosong */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-image: url('flower-g5.jpg');  */
+  /* background-color: rgb(255, 1, 1); */
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  /* opacity: 0.5; */
+  z-index: -1; /* Pastikan pseudo-element berada di belakang konten */
+  pointer-events: none; /* Mencegah pseudo-element menangkap klik */
+  /* filter: blur(1px); */
+}
+#section2 h1 {
+  margin-top: -15%; /* Kurangi nilai ini untuk menggeser lebih ke atas */
+  font-family: 'Great Vibes', cursive; /* Font dekoratif */
+  font-size: 10vw; /* Ukuran besar */
+  color: #b03a2e; /* Warna aksen elegan */
+  text-align: center; /* Perataan teks di tengah */
+  font-weight: bold;
+}
+#section2 h2 {
+  margin-top: 1%; /* Kurangi nilai ini untuk menggeser lebih ke atas */
+  font-family: 'Playfair Display', serif; /* Font elegan */
+  font-size: 4vw; /* Ukuran sedang */
+  color: #333; /* Warna teks utama */
+  font-weight: bold;
+}
+#section2 h3 {
+  font-family: 'Lora', serif; /* Anggun dan klasik */
+  font-size: 5vw;
+  color: #252525;
+  line-height: 1.8; 
+  text-align: center;
+}
+
+/* Styling Slideshow Container5 */
+/* .slideshow-container {
+  position: relative;
+  width: 80%;
+  height: auto;
+  text-align: center;
+  overflow: hidden;
+}
+
+.slide {
+  display: none; 
+  text-align: center;
+  padding: 20px;
+}
+
+.slide-image {
+  width: 150px; 
+  height: auto;
+  border-radius: 15px; 
+  margin: 10px auto;
+} */
+
+.fade {
+  animation: fadeInOut 2s ease-in-out infinite; /* Smooth transition */
+}
+.fade2 {
+  animation: fadeInOut 2s ease-in-out infinite; /* Smooth transition */
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+      opacity: 0; /* Invisible at start and end */
+  }
+  50% {
+      opacity: 1; /* Fully visible in the middle */
+  }
+}
+
+/* Frame Countdown */
+.countdown-frame {
+  border: 3px solid #b03a2e; /* Border warna aksen */
+  border-radius: 10px; /* Sudut melengkung lebih kecil */
+  padding: 10px; /* Spasi di dalam frame */
+  background: linear-gradient(to bottom, #f8f9fa, #fff); /* Gradient background */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Bayangan lebih lembut */
+  text-align: center; /* Teks rata tengah */
+  width: 80%; /* Lebar frame lebih kecil */
+  margin: 0 auto 15px auto; /* Tengahkan frame dengan margin lebih kecil */
+}
+
+/* Gaya Heading Countdown */
+.countdown-frame h2 {
+  font-family: 'Playfair Display', serif; /* Font dekoratif */
+  font-size: 1.5rem; /* Ukuran font lebih kecil */
+  color: #b03a2e; /* Warna aksen */
+  margin-bottom: 10px; /* Jarak lebih kecil */
+}
+
+/* Countdown Item Styling */
+.countdown {
+  display: flex; /* Gunakan flexbox untuk menyusun secara horizontal */
+  justify-content: center; /* Posisi elemen di tengah */
+  align-items: center; /* Rata tengah secara vertikal */
+  gap: 2vw; /* Jarak antar elemen lebih kecil */
+}
+
+.countdown-item {
+  text-align: center; /* Teks rata tengah */
+  padding: 5px 10px; /* Spasi di dalam item lebih kecil */
+  background-color: #eaf6f8; /* Warna background item */
+  border-radius: 5px; /* Sudut melengkung lebih kecil */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan lebih kecil */
+  width: 70px; /* Lebar lebih kecil */
+}
+
+.countdown-item span {
+  display: block;
+  font-size: 1.5rem; /* Ukuran font lebih kecil untuk angka */
+  font-weight: bold;
+  color: #333; /* Warna teks */
+}
+
+.countdown-item p {
+  margin: 0;
+  font-size: 0.8rem; /* Ukuran font lebih kecil untuk label */
+  color: #555; /* Warna teks */
+}
+
+/* Efek masuk (fade-in) */
+.smooth-transition-in {
+  opacity: 0;
+  transform: translateY(20px); /* Geser sedikit ke bawah */
+  transition: opacity 1s ease-in, transform 1s ease-in; /* Transisi smooth */
+}
+
+.smooth-transition-in.active {
+  opacity: 1;
+  transform: translateY(0); /* Kembali ke posisi semula */
+}
+
+/* Efek keluar (fade-out) */
+.smooth-transition-out {
+  opacity: 1;
+  transform: translateY(0); /* Posisi normal */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Transisi smooth */
+}
+
+.smooth-transition-out.inactive {
+  opacity: 0;
+  transform: translateY(-20px); /* Geser sedikit ke atas */
+}
+
+/* Frame untuk tulisan Arab dan artinya */
+.arabic-frame {
+  border: 2px solid #b03a2e; /* Warna garis merah */
+  padding: 20px; /* Spasi di dalam frame */
+  border-radius: 10px; /* Sudut melengkung */
+  background-color: #fff; /* Warna latar putih */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+  margin-top: 20px; /* Jarak atas dengan elemen lainnya */
+  max-width: 95%; /* Batas lebar frame */
+  text-align: center; /* Teks rata tengah */
+}
+
+/* Gaya untuk tulisan Arab */
+.arabic-text {
+  font-family: 'Amiri', serif; /* Gunakan font Arab (contoh: Amiri, Noto Nastaliq Urdu) */
+  font-size: 6vw; /* Ukuran font Arab */
+  color: #333; /* Warna teks */
+  margin-bottom: 10px; /* Jarak bawah dengan teks terjemahan */
+  direction: rtl; /* Arah teks kanan-ke-kiri */
+}
+
+/* Gaya untuk terjemahan */
+.translation-text {
+  font-family: 'Playfair Display', serif; /* Font elegan untuk terjemahan */
+  font-size: 3vw; /* Ukuran font terjemahan */
+  color: #555; /* Warna teks terjemahan */
+  text-align: center; /* Teks rata tengah */
+}
+
+#section3 {
+  background-image: url('flower-g5.jpg'); /* Ganti dengan path gambar Anda */
+  /* background-color: rgba(255, 255, 255, 0.1);
+  background-blend-mode: overlay; */
+  /* background-size: cover; Pastikan gambar menutupi seluruh area */
+  /* background-position: center; Posisikan gambar di tengah */
+  /* background-repeat: no-repeat; Mencegah pengulangan gambar */
+  padding: 20px; /* Memberikan spasi dalam section */
+  color: #fff; /* Warna teks agar kontras dengan background */
+  background-position: top center;
+  /* transform: scaleX(-1); */
+}
+/* Section Title Styling */
+.section-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #b03a2e;
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+/* Slide Content Styling */
+.slide-content {
+  position: relative;
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.slide-content h3 {
+  font-size: 2rem;
+  color: #b03a2e;
+}
+
+.slide-content p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+/* Icon Animation */
+.icon-animation {
+  width: 50px;
+  height: auto;
+  margin-bottom: 15px;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+/* Ornament Styling */
+.ornament {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: #f9c74f;
+  border-radius: 50%;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ornament-top {
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ornament-bottom {
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Keyframe Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+/* Section 4 */
+
+#section4 {
+  background-image: url('flower-g5.jpg'); /* Ganti dengan path gambar Anda */
+  /* background-color: rgba(255, 255, 255, 0.1);
+  background-blend-mode: overlay; */
+  /* background-size: cover;  */
+  background-position: center; /* Posisikan gambar di tengah */
+  background-repeat: no-repeat; /* Mencegah pengulangan gambar */
+  padding: 20px; /* Memberikan spasi dalam section */
+  color: #fff; /* Warna teks agar kontras dengan background */
+  /* transform: scaleY(-1); */
+}
+#section4 h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #b03a2e; /* Warna aksen */
+  margin-bottom: 20px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+#section4 h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+#section4 h3 {
+  font-family: 'Lora', serif;
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* Map Container Styling */
+#map-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 50%;
+  margin: 0 auto;
+  border-radius: 15px; /* Membuat sudut peta melengkung */
+  overflow: hidden; /* Potong elemen yang keluar */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#view-larger-map {
+  margin-top: 20px;
+  background-color: #b03a2e;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#view-larger-map:hover {
+  background-color: #e73825;
+  transform: scale(1.05);
+}
+
+/* Animasi Fade-in */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Section 5 Styling */
+#section5 {
+  background-image: url('flower-g5.jpg');
+  background-position: left bottom; 
+  padding: 20px;
+  background-color: #eaf5f0; /* Background warna lembut */
+  border-radius: 10px; /* Sudut melengkung */
+  text-align: center;
+}
+
+#section5 h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #b03a2e;
+  margin-bottom: 20px;
+}
+
+#section5 p {
+  font-family: 'Lora', serif;
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* Frame untuk Wedding Gift */
+.gift-frame {
+  background: linear-gradient(to bottom, #fff8e1, #ffffff); /* Warna lembut */
+  border: 2px solid #b0922e; /* Warna border emas */
+  border-radius: 15px;
+  padding: 20px;
+  width: 80%; /* Gunakan persentase agar responsif */
+  max-width: 800px; /* Batasi lebar maksimum */
+  margin: 0 auto 20px auto; /* Tengahkan dan beri margin bawah */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Bayangan */
+  position: relative;
+}
+
+.gift-frame::before, .gift-frame::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #b0922e; /* Lingkaran dekoratif warna emas */
+}
+
+.gift-frame::before {
+  top: -10px;
+  left: -10px;
+}
+
+.gift-frame::after {
+  bottom: -10px;
+  right: -10px;
+}
+
+.gift-content {
+  text-align: center;
+}
+
+.gift-content img {
+  width: 50px; /* Ikon hadiah */
+  margin-bottom: 15px;
+}
+
+.gift-content p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Tombol dalam frame */
+.gift-frame .gift-button {
+  background-color: #f9c74f;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.gift-frame .gift-button:hover {
+  background-color: #e0a300;
+  transform: scale(1.05);
+}
+
+/* Teks di bawah frame */
+.gift-note {
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  color: #888;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.gift-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.gift-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Bank Card */
+.bank-card {
+  background: linear-gradient(to bottom, #ffeeba, #f8f9fa); /* Warna lembut */
+  padding: 20px;
+  border-radius: 15px;
+  width: 80%; /* Gunakan persentase agar responsif */
+  max-width: 600px;
+  text-align: center;
+  margin: 30px auto;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.bank-logo img {
+  width: 20%; /* Gunakan persentase agar responsif */
+  margin-bottom: 15px;
+}
+
+.account-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.copy-button {
+  background-color: #b03a2e;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.copy-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.account-holder {
+  font-size: 1rem;
+  margin-top: 10px;
+  color: #555;
+}
+
+#section6 {
+  background-image: url('flower-g5.jpg'); 
+  background-size: cover; 
+  background-position: right top; 
+  background-repeat: no-repeat; 
+}
+
+#section6 h1 {
+  font-family: 'Great Vibes', cursive; /* Font dekoratif */
+  font-size: 0.1rem; /* Ukuran besar */
+  margin-bottom: 20px;
+}
+
+#section6 p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+/* Tombol Kirim Hadiah */
+.gift-button {
+  background-color:  #b03a2e;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gift-button:hover {
+  background-color:  #d15344;
+}
+
+/* Bank Card */
+.bank-card {
+  background: linear-gradient(to bottom, #b9854d, #623a12);
+  padding: 20px;
+  border-radius: 15px;
+  width: 300px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+}
+
+/* Bank Logo */
+.bank-logo {
+  margin-bottom: 10px;
+}
+
+.bank-logo-image {
+  width: 100px;
+  height: auto;
+}
+
+/* Account Number */
+.account-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Copy Button */
+.copy-button {
+  background-color: white;
+  color: #333;
+  border: none;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.copy-button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Account Holder */
+.account-holder {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+/* Kartu bank transisi muncul */
+#bank-card {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+#bank-card.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.message-container {
+  width: 80%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message-card {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #f8f9fa;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message-card h4 {
+  margin: 0 0 5px 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.message-card p {
+  margin: 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Hover efek untuk icon mute di shortcut */
+.shortcut#muteshortcut i {
+  font-size: 1.8rem;
+  color: white;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.shortcut#muteshortcut:hover i {
+  transform: scale(1.2);
+  color: red;
+}
+/* #b03a2e; */
+/* Section 6 RSVP Styling */
+.rsvp-form {
+  background: linear-gradient(to bottom, #f8f9fa, #ffffff); /* Gradasi warna */
+  padding: 5%; /* Gunakan persentase untuk padding */
+  border-radius: 2%; /* Sudut melengkung */
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  width: 90%; /* Lebar 90% dari kontainer */
+  max-width: 90%; /* Batasi lebar maksimum dalam persentase */
+  margin: 2% auto; /* Margin atas dan bawah dalam persentase */
+}
+
+.rsvp-form input, .rsvp-form textarea {
+  border: 1px solid #ccc;
+  border-radius: 2%; /* Sudut melengkung */
+  padding: 3%; /* Padding lebih besar dalam persentase */
+  width: 100%; /* Lebar penuh dalam kontainer */
+  margin-bottom: 2%; /* Jarak antar elemen */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 1.1rem; /* Ukuran teks tetap relatif */
+}
+
+.rsvp-form button {
+  background-color: #b03a2e;; /* Warna tombol */
+  color: #fff; /* Warna teks */
+  border: none;
+  padding: 3% 5%; /* Padding vertikal 3%, horizontal 5% */
+  font-size: 1rem; /* Ukuran font */
+  border-radius: 2%; /* Sudut melengkung */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.rsvp-form button:hover {
+  background-color: #0056b3; /* Warna tombol saat hover */
+}
+
+.rsvp-response-message {
+  font-size: 1rem; /* Ukuran teks pesan */
+  color: green; /* Warna pesan sukses */
+  margin-top: 2%; /* Jarak atas */
+}
+
+/* Container Pesan dari Tamu */
+.rsvp-message-container {
+  margin-top: 3%;
+  width: 90%; /* Lebar 90% */
+  max-height: 40%; /* Tinggi maksimum dalam persentase */
+  overflow-y: auto; /* Scroll jika tinggi melebihi batas */
+  border: 1px solid #ddd; /* Border */
+  border-radius: 2%; /* Sudut melengkung */
+  background-color: #f9f9f9; /* Warna latar */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 3%; /* Padding dalam persentase */
+}
+
+.rsvp-message-card {
+  background: #fff;
+  border-radius: 2%; /* Sudut melengkung */
+  padding: 3%; /* Padding dalam persentase */
+  margin-bottom: 2%; /* Jarak antar pesan */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rsvp-message-card h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1%; /* Jarak bawah dalam persentase */
+  color: #007bff; /* Warna nama */
+}
+
+.rsvp-message-card p {
+  font-size: 1rem;
+  color: #555; /* Warna teks pesan */
+}
+
+/* Section 7 Styling dengan Background */
+#section7 {
+  background-image: url('flower-g4.jpg'); /* Ganti dengan nama file background */
+  background-size: cover; /* Pastikan gambar menutupi seluruh area */
+  background-position: center; /* Posisikan gambar di tengah */
+  background-attachment: fixed; /* Efek paralaks */
+  color: #fff; /* Ubah warna teks agar kontras dengan background */
+  text-align: center;
+  padding: 40px;
+}
+
+.thank-you-container {
+  position: relative;
+  padding: 30px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.8); /* Latar semi-transparan */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Bayangan lembut */
+}
+
+.thank-you-icon {
+  width: 80px;
+  height: auto;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.thank-you-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #b03a2e; 
+  margin-bottom: 15px;
+}
+
+.thank-you-message {
+  font-size: 1.3rem;
+  color: #333; 
+  line-height: 1.6;
+}
+
+/* Animasi Ornamen */
+.ornament {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: #ffcc00;
+  border-radius: 50%;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ornament-top {
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ornament-bottom {
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Profil Mempelai Styling */
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* Membuat gambar menjadi lingkaran */
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Bayangan lembut */
+  transition: transform 0.3s ease-in-out;
+}
+
+.profile-image:hover {
+  transform: scale(1.1); /* Efek zoom saat hover */
+}
+
+.slide-content h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: #b03a2e; /* Warna aksen */
+}
+
+.slide-content p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+/* Navigation Dots Styling */
+.navigation-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: #bbb; /* Warna default */
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #b03a2e; /* Warna dot aktif */
+}
+
+
+.copy-button {
+  background-color: #b03a2e;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.copy-button:hover {
+  background-color: #d15344;
+  transform: scale(1.05);
 }
