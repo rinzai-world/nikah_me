@@ -164,12 +164,12 @@ showSlides();
 const events = [
     {
         title: "Akad Pernikahan",
-        dateText: "Rabu, 23 Januari 2025 (11.00 WITA)",
+        dateText: "Rabu, 22 Januari 2025 (11.00 WITA)",
         date: new Date("2025-01-22T11:00:00").getTime() // Akad Pernikahan
     },
     {
         title: "Resepsi Pernikahan",
-        dateText: "Kamis, 24 Januari 2025 (09.00 WITA)",
+        dateText: "Kamis, 23 Januari 2025 (09.00 WITA)",
         date: new Date("2025-01-23T09:00:00").getTime() // Resepsi Pernikahan
     }
 ];
