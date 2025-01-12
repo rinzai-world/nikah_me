@@ -473,10 +473,8 @@ const observerOptions = {
   threshold: 0.2, // Jalankan callback saat 20% elemen terlihat
 };
 
-// Buat observer instance
 const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-// Pasang observer ke setiap section
 sections.forEach(section => {
   section.classList.add("animated"); // Tambahkan kelas dasar animasi
   observer.observe(section);
