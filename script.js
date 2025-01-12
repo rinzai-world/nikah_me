@@ -48,7 +48,8 @@ openInvitationButton.addEventListener('click', () => {
 const images = [
     "muslim.jpeg",
     "rifqi22.jpg",
-    "paisa2.jpg"
+    "paisa2.jpg",
+    
 ];
 
 let currentImageIndex = 0; // Index gambar saat ini
@@ -350,45 +351,6 @@ function addMessageToContainer(name, message, timestamp) {
 // Reference to the RSVP messages container
 const rsvpMessagesContainer = document.getElementById('rsvpMessagesContainer');
 
-// Function to fetch and display RSVP messages
-function displayRsvpMessages() {
-    const messagesContainer = document.getElementById("rsvpMessagesContainer");
-
-  // Pastikan kontainer kosong sebelum ditambahkan
-  messagesContainer.innerHTML = "";
-
-  // Ambil data dari Firebase dengan urutan terbaru
-  firebase.database().ref("rsvp")
-    .orderByChild("timestamp")
-    .limitToLast(100) // Ambil maksimum 100 pesan terbaru
-    .once("value", (snapshot) => {
-      const messages = [];
-      
-      // Masukkan setiap pesan ke dalam array
-      snapshot.forEach((childSnapshot) => {
-        const data = childSnapshot.val();
-        messages.push(data); // Tambahkan pesan ke array
-      });
-
-      // Tampilkan pesan dari terbaru ke terlama
-      messages.reverse().forEach((data) => {
-        const messageCard = document.createElement("div");
-        messageCard.classList.add("rsvp-message-card");
-
-        messageCard.innerHTML = `
-          <h4>${data.name} <span style="font-size: 0.8rem; color: #888;">
-          (${new Date(data.timestamp).toLocaleString()})</span></h4>
-          <p>${data.message}</p>
-        `;
-
-        messagesContainer.appendChild(messageCard);
-      });
-    });
-}
-
-// Call the function to display RSVP messages
-displayRsvpMessages();
-
 // Data akun bank
 const bankAccounts = {
     rifqi: {
@@ -488,3 +450,34 @@ function toggleMusic() {
     document.getElementById('muteShortcut').innerHTML = '<i class="fas fa-volume-up"></i>';
   }
 }
+
+// Pilih semua section (1–7)
+const sections = document.querySelectorAll("section");
+
+// Fungsi untuk menambahkan/menghapus animasi berdasarkan visibilitas
+const observerCallback = (entries, observer) => {
+  entries.forEach(entry => {
+    const target = entry.target;
+
+    if (entry.isIntersecting) {
+      target.classList.add("visible"); // Tambahkan kelas animasi saat terlihat
+    } else {
+      target.classList.remove("visible"); // Hapus animasi saat tidak terlihat
+    }
+  });
+};
+
+// Atur observer options
+const observerOptions = {
+  root: null, // Menggunakan viewport sebagai root
+  threshold: 0.2, // Jalankan callback saat 20% elemen terlihat
+};
+
+// Buat observer instance
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+// Pasang observer ke setiap section
+sections.forEach(section => {
+  section.classList.add("animated"); // Tambahkan kelas dasar animasi
+  observer.observe(section);
+});
